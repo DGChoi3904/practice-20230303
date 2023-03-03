@@ -20,10 +20,17 @@
     //접근을 할줄 아나 이를 자동으로 적용시킬 방법은 무엇인가?
     
     //문자열 배열을 이용한 literal 접근법
+    
     ulStyleObject = ["width", "height", "border"];
-    makeUl.style[ulStyleObject[0]] = "100px";
-    makeUl.style[ulStyleObject[1]] = "100px";
-    makeUl.style[ulStyleObject[2]] = "1px solid black";
+    //마크업에 가까운 접근법
+    //makeUl.style[ulStyleObject[0]] = "100px";
+    //makeUl.style[ulStyleObject[1]] = "100px";
+    //makeUl.style[ulStyleObject[2]] = "1px solid black";
+
+    //for 문을 적용한 접근법. 다만 값이 잘못 들어가긴 한다.
+    for(let i = 0; i < ulStyleObject.length; i++){
+      makeUl.style[ulStyleObject[i]] = "100px";
+    }
   </script>
 </body>
 </html>
