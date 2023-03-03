@@ -10,21 +10,28 @@
   <div id="root"></div>
   <script>
     const page = {
-      famliy : [
+      family : [
         "div",
           ["div",
             ["div"]
           ]
       ],
+      counter : 0,
       relationship: function(pge) {
-        if(pge){
-          for(let i in pge){
-
+        this.counter++;
+        console.log(this.counter);
+        for(let i in pge){
+          if(typeof(pge[i]) === 'object'){
+            console.log(i);
+            this.relationship(pge[i]);
           }
+          //console.log(this.counter);
+          console.log(pge[i]);
         }
       }
     }
-    console.log(page);
+    page.relationship(page.family);
+    //console.log(page.relationship(page.famliy));
   </script>
 </body>
 </html>
