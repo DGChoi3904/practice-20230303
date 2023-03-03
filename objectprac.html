@@ -21,9 +21,15 @@
           }
         },
       ],
-      border : "1px solid black"
+      border : "1px solid black",
+      addBox: function(type) {
+        this.box.push({
+          type: type,
+        });
+      }
     };
     console.log(page.box[0]);
+    page.addBox("div");
     for(let i = 0; i < page.box.length; i++){
       let box;
       for(let par in page.box[i]){
@@ -39,10 +45,12 @@
         }
         if(par === "style"){
           console.log(3)
-          for(let prop in page.box[i].style){
-            box.style[prop] = page.box[i].style[prop];
+          if(page.box[i].style){
+            for(let prop in page.box[i].style){
+              box.style[prop] = page.box[i].style[prop];
+            }
+            console.log("style set")
           }
-          console.log("style set")
         }
       }
       box.style.border = page.border;
@@ -50,6 +58,8 @@
       console.dir(box);
       document.body.children[0].appendChild(box);
     }
+    
+    console.log(page);
     
   </script>
 </body>
