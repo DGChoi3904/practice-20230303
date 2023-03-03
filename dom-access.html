@@ -8,6 +8,19 @@
 </head>
 <body>
   <div id="root"></div>
-  <script></script>
+  <script>
+    const root = document.getElementById("root");
+    //root, style의 타입을 확인, object
+    console.log(typeof (root.style));
+    //for-in 문을 통하여 스타일 속성 key값 받아오기
+    for (let key in root.style){
+      console.log(key);
+      if(key === "width"){
+        root.style[key] = "100px";
+      }
+    }
+    console.log(root.style["100px"])
+
+  </script>
 </body>
 </html>
