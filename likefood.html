@@ -51,21 +51,25 @@
     for(let name in studentObject){
       //value가 "가지"와 같을 경우
       if(studentObject[name] === "가지"){
+        //처리단계
         //카운트를 늘림
         hateMushroom++;
         //이름을 push함.
         hateMushroomHuman.push(name);
       }
+      //이름의 첫글자(string은 char로 구성된 array이기에)
       if(name.charAt(0) === "김"){
         surnameKim++;
         surnameKimHuman.push(name);
       }
     }
     
-    
+    //표현단계
     const root = document.getElementById('root');
     const block = document.createElement('div');
     const block2 = document.createElement('div');
+    //표현을위해 가공되어 처리된 데이터들을 표현에 맞게 다시 가공하는 상태.
+    //표현할 수 있는 단계로 데이터를 가공함.
     let text = `305호실 훈련생들 중 가지를 싫어하는 사람의 수는 ${hateMushroom}명 이며, 이름은 ${hateMushroomHuman} 이다.`
     let text2 = `305호실 훈련생들 중 김씨 성을 가진 사람의 수는 ${surnameKim}명 이며, 이름은 ${surnameKimHuman} 이다.`
     console.log(hateMushroom);
@@ -73,10 +77,12 @@
     console.log(text);
     console.log(surnameKim);
     console.log(surnameKimHuman);
+    //가공된 데이터를 처리함.
     block.textContent = text;
     block2.textContent = text2;
     root.appendChild(block);
     root.appendChild(block2);
+    //위의 처리가 끝난 후, 브라우저는 이 표현단계에 있는 데이터들을 읽고 표현함.
     
 
   </script>
