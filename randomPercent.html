@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <fieldset>
+      <legend>오늘의 메뉴</legend>
+      <p></p>
+    </fieldset>
+  </div>
+  <script>
+    const root = document.body.children[0];
+    let item = [
+      "한식",
+      "중식",
+      "일식",
+      "패스트푸드"
+    ]
+    let price = [
+      "비싼거",
+      "적당한거",
+      "싼거"
+    ]
+    function randomItems(item) {
+      let answer = item[Math.floor(Math.random() * (item.length - 0))];
+      return answer;
+    }
+    let wowString = "";
+    
+    wowString = `당신은 오늘 ${randomItems(item)}중 ${randomItems(price)}를 먹을 예정입니다!`
+    root.children[0].children[1].textContent = wowString;
+    
+    
+  </script>
+</body>
+</html>
