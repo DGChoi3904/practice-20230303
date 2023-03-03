@@ -18,7 +18,12 @@
     makeUl.style.height = "100px";
     makeUl.style.border = "1px solid black";
     //접근을 할줄 아나 이를 자동으로 적용시킬 방법은 무엇인가?
-    const ulstyleObj = 
+    
+    //문자열 배열을 이용한 literal 접근법
+    ulStyleObject = ["width", "height", "border"];
+    makeUl.style[ulStyleObject[0]] = "100px";
+    makeUl.style[ulStyleObject[1]] = "100px";
+    makeUl.style[ulStyleObject[2]] = "1px solid black";
   </script>
 </body>
 </html>
