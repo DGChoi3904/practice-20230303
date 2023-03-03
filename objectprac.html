@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const page = {
+      box : [
+        {
+          type : "div",
+          id : "btn",
+          style : {
+            width : "100px",
+            height : "100px",
+            boxSizing : "border-box"
+          }
+        },
+      ],
+      border : "1px solid black"
+    };
+    console.log(page.box[0]);
+    for(let i = 0; i < page.box.length; i++){
+      let box;
+      for(let par in page.box[i]){
+        if(par === "type"){
+          console.log(1)
+          box = document.createElement(page.box[i].type)
+          console.log("box created")
+        }
+        if(par === "id"){
+          console.log(2)
+          box.id = page.box[i].id
+          console.log("id set")
+        }
+        if(par === "style"){
+          console.log(3)
+          for(let prop in page.box[i].style){
+            box.style[prop] = page.box[i].style[prop];
+          }
+          console.log("style set")
+        }
+      }
+      box.style.border = page.border;
+      console.log("border set")
+      console.dir(box);
+      document.body.children[0].appendChild(box);
+    }
+    
+  </script>
+</body>
+</html>
