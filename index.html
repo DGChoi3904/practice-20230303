@@ -21,7 +21,8 @@
     
     //문자열 배열을 이용한 literal 접근법
     
-    ulStyleObject = ["width", "height", "border"];
+    const ulStyleObject = ["width", "height", "border"];
+    const ulStyleValue = ["100px", "100px", "1px solid black"];
     //마크업에 가까운 접근법
     //makeUl.style[ulStyleObject[0]] = "100px";
     //makeUl.style[ulStyleObject[1]] = "100px";
@@ -29,7 +30,7 @@
 
     //for 문을 적용한 접근법. 다만 값이 잘못 들어가긴 한다.
     for(let i = 0; i < ulStyleObject.length; i++){
-      makeUl.style[ulStyleObject[i]] = "100px";
+      makeUl.style[ulStyleObject[i]] = ulStyleValue[i];
     }
   </script>
 </body>
