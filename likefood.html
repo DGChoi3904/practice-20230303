@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    //수집된 데이터
+    let studentObject = {
+      "강지민":"마라탕",
+      "곽윤호":"조개",
+      "권예준":"가지",
+      "김동주":"버섯",
+      "김은아":"굴",
+      "김종윤":"오이",
+      "김지섭":"술",
+      "김형진":"독버섯",
+      "노수민":"다리많은거",
+      "류은이":"피망",
+      "박달재":"벌레",
+      "박수연":"삼결살",
+      "박준형":"생간",
+      "성해경":"우엉",
+      "이경택":"홍어",
+      "이세민":"짜장면",
+      "이재권":"가지",
+      "임지성":"단무지",
+      "장루빈":"김치",
+      "정성철":"고수",
+      "정지은":"버섯",
+      "정희은":"술",
+      "최대건":"뼈많은생선",
+      "한유진":"양파",
+      "허진":"딸기",
+    };
+    //가공할 방법, 로직(logic), 로직을 찾아라.
+    let hateMushroom = 0;
+    let hateMushroomHuman = [];
+    // 반복문을 돌려서
+    // 몇명이 버섯을 싫어하는지
+    // 버섯을 싫어하는 사람의 이름
+
+    //성이 김씨인 사람들
+    let surnameKim = 0;
+    let surnameKimHuman = [];
+
+    for(let name in studentObject){
+      //value가 "가지"와 같을 경우
+      if(studentObject[name] === "가지"){
+        //카운트를 늘림
+        hateMushroom++;
+        //이름을 push함.
+        hateMushroomHuman.push(name);
+      }
+      if(name.charAt(0) === "김"){
+        surnameKim++;
+        surnameKimHuman.push(name);
+      }
+    }
+    
+    
+    const root = document.getElementById('root');
+    const block = document.createElement('div');
+    const block2 = document.createElement('div');
+    let text = `305호실 훈련생들 중 가지를 싫어하는 사람의 수는 ${hateMushroom}명 이며, 이름은 ${hateMushroomHuman} 이다.`
+    let text2 = `305호실 훈련생들 중 김씨 성을 가진 사람의 수는 ${surnameKim}명 이며, 이름은 ${surnameKimHuman} 이다.`
+    console.log(hateMushroom);
+    console.log(hateMushroomHuman);
+    console.log(text);
+    console.log(surnameKim);
+    console.log(surnameKimHuman);
+    block.textContent = text;
+    block2.textContent = text2;
+    root.appendChild(block);
+    root.appendChild(block2);
+    
+
+  </script>
+</body>
+</html>
