@@ -14,9 +14,9 @@
     const makeUl = document.createElement('ul');
     root.appendChild(makeUl);
     //동적으로 값을 직접 할당하는 방식
-    makeUl.style.width = "100px";
-    makeUl.style.height = "100px";
-    makeUl.style.border = "1px solid black";
+    // makeUl.style.width = "100px";
+    // makeUl.style.height = "100px";
+    // makeUl.style.border = "1px solid black";
     //접근을 할줄 아나 이를 자동으로 적용시킬 방법은 무엇인가?
     
     //문자열 배열을 이용한 literal 접근법
@@ -28,10 +28,30 @@
     //makeUl.style[ulStyleObject[1]] = "100px";
     //makeUl.style[ulStyleObject[2]] = "1px solid black";
 
-    //for 문을 적용한 접근법. 다만 값이 잘못 들어가긴 한다.
-    for(let i = 0; i < ulStyleObject.length; i++){
-      makeUl.style[ulStyleObject[i]] = ulStyleValue[i];
+    //for 문을 적용한 접근법. key값과 value 값을 구분했다.
+    // for(let i = 0; i < ulStyleObject.length; i++){
+    //   makeUl.style[ulStyleObject[i]] = ulStyleValue[i];
+    // }
+    
+    //선언, 호출(Call)식으로 불러오는 함수
+    // function twoArrayDOMstyling(firstArray, secondArray, element) {
+    //   for(let i = 0; i < ulStyleObject.length; i++){
+    //     element.style[firstArray[i]] = secondArray[i];
+    //   }
+    // }
+    
+    //객체로 각 배열들을 지정하고, 엘리먼트를 적용하기.
+    let domStyle = {
+      firstArray : ["width", "height", "border"],
+      secondArray : ["100px", "100px", "1px solid black"],
+      element : root.children[0]
     }
+    function oneObjectDOMStyling(object) {
+      for(let i = 0; i < object.firstArray.length; i++){
+        object.element.style[object.firstArray[i]] = object.secondArray[i];
+      }
+    }
+    oneObjectDOMStyling(domStyle);
   </script>
 </body>
 </html>
